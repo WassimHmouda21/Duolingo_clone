@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Nunito } from "next/font/google";
+import { Toaster } from "@/components/ui/sonner";
+import {
+  ClerkProvider,
+
+} from "@clerk/nextjs";
 import "./globals.css";
+import { ExitModal } from "@/components/modals/exit-modal";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const font = Nunito({
   subsets: ["latin"],
 });
 
@@ -23,12 +24,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
+
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={font.className}
       >
+        <Toaster />
+        <ExitModal />
         {children}
       </body>
     </html>
+          
+    </ClerkProvider>
   );
 }
