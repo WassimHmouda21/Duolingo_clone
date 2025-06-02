@@ -11,14 +11,19 @@ import {
     DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { useExitModal } from "@/store/use-exit-modal";
+import { useHeartsModal } from "@/store/use-hearts-modal";
 
-export const ExitModal = () => {
+export const HeartsModal = () => {
  const router = useRouter();
  const [isClient, setisClient] = useState(false);
- const { isOpen, close } = useExitModal();
+ const { isOpen, close } = useHeartsModal();
 
  useEffect(() => setisClient(true), []);
+
+const onClick = () => {
+  close();
+  router.push("/store");
+};
 
  if (!isClient) {
     return null;
@@ -30,17 +35,17 @@ export const ExitModal = () => {
   <DialogHeader className="flex flex-col items-center text-center">
     <div className="mb-5">
       <Image
-        src="/mascot_sad.jpg"
+        src="/mascot-bad.jpeg"
         alt="Mascot"
         height={80}
         width={80}
       />
     </div>
     <DialogTitle className="text-center font-bold text-2xl">
-      Wait, don't go!
+      You ran out of hearts!
     </DialogTitle>
     <DialogDescription className="text-center text-base">
-        You're about to meave the lesson. Are you sure?
+       Get Pro for unlimited hearts, or purchase them in the store.
     </DialogDescription>
   </DialogHeader>
   <div className="flex justify-center w-full">
@@ -48,9 +53,9 @@ export const ExitModal = () => {
     variant="primary" 
     className="max-w-xs w-full" 
     size="lg" 
-    onClick={close}
+    onClick={onClick}
   >
-    Keep learning
+    Get unlimited hearts
   </Button>
 </div>
 <div className="flex justify-center w-full">
@@ -58,12 +63,9 @@ export const ExitModal = () => {
     variant="dangerOutline" 
     className="w-full" 
     size="lg" 
-    onClick={() => {
-        close();
-        router.push("/learn");
-    }}
+    onClick={close}
   >
-    End session
+    No thanks
   </Button>
 </div>
 
