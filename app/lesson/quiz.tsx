@@ -1,6 +1,6 @@
 "use client";
 
-import { challengeOptions, challenges } from "@/db/schema";
+import { challengeOptions, challenges, userSubscription } from "@/db/schema";
 import Image from "next/image";
 import { useState, useTransition } from "react";
 import { Header } from "./header";
@@ -25,7 +25,9 @@ type Props ={
         challengeOptions: typeof challengeOptions.$inferSelect[];
 
     })[];
-    userSubscription: any; //TODO: Replace with sbscription DB type
+    userSubscription: typeof userSubscription.$inferSelect & {
+      isActive: boolean;
+    } | null; 
 
 };
 

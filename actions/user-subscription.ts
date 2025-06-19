@@ -8,7 +8,7 @@ import { absoluteUrl } from "@/lib/utils";
 
 import { getUserSubscription } from "@/db/queries";
 
-const returnUrl = absoluteUrl("/shop"); // http://localhost:3000/shop
+const returnUrl = absoluteUrl("/shop"); 
 
 export const createStripeUrl = async () => {
   const { userId } = await auth();
