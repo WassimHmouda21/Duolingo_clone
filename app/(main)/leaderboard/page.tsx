@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Quests } from "@/components/ui/quests";
 
 
 const LeaderboardPage = async () => {
@@ -38,6 +39,8 @@ const LeaderboardPage = async () => {
               points={userProgress.points}
               hasActiveSubscription={isPro}
               />
+
+            <Quests points={userProgress.points} />
         </StickyWrapper>
         <FeedWrapper>
           <div className="w-full flex flex-col items-center">

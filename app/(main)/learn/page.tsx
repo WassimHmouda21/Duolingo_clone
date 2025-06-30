@@ -8,7 +8,10 @@ import { getCourseProgress,
     getUserProgress } from "@/db/queries";
 import { redirect } from "next/navigation";
 import { Unit } from "./unit";
-import { lessons , units as unitsSchema } from "@/db/schema";
+
+import { lessons , units as unitsSchema, userSubscription } from "@/db/schema";
+import { Promo } from "@/components/ui/promo";
+import { Quests } from "@/components/ui/quests";
 
 const LearnPage = async () => {
   const userProgressData = getUserProgress();
@@ -31,6 +34,8 @@ const LearnPage = async () => {
     redirect("/courses");
   }
 
+  
+
   return (
     <div className="flex flex-row-reverse gap-[48px] px-6">
       <StickyWrapper>
@@ -40,6 +45,9 @@ const LearnPage = async () => {
           points={userProgress.points}
           hasActiveSubscription={false}
         />
+        {}
+        <Promo />
+        <Quests points={userProgress.points} />
       </StickyWrapper>
 
       <FeedWrapper>
