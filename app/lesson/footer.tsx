@@ -15,7 +15,6 @@ export const Footer = ({
     onCheck,
     status,
     disabled,
-    lessonId
 }: Props) => {
     useKey("Enter", onCheck, {}, [onCheck]);
     const isMobile = useMedia("(max-width: 1024px")
