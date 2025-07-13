@@ -1,5 +1,5 @@
 ## Live Demo
-Check out the live application 👉 https://duolingo-clone-27jr.vercel.app/learn 
+Check out the live application 👉 https://duolingo-clone-wmlt.vercel.app/
 
 # Duolingo_clone
 
