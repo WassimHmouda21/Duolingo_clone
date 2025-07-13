@@ -39,7 +39,7 @@ export const ExitModal = () => {
       Wait, don't go!
     </DialogTitle>
     <DialogDescription className="text-center text-base">
-        You're about to meave the lesson. Are you sure?
+        You're about to leave the lesson. Are you sure?
     </DialogDescription>
   </DialogHeader>
   <div className="flex justify-center w-full">
